@@ -12,6 +12,15 @@ document.getElementById('reset').addEventListener('click',resetGrid);
 
 function resetGrid() {
   gridSize = prompt('Grid size (n x n)');
+  if(gridSize == null || gridSize == '') {
+    return;
+  }
+  while(!Number.isInteger(Number(gridSize)) || gridSize < 1 || gridSize > 64) {
+    gridSize = prompt('The size entered is invalid or too big.');
+    if(gridSize == null || gridSize == '') {
+      return;
+    }
+  }
   createDivs(gridSize);
 }
 
