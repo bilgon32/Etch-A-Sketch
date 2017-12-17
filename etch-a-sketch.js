@@ -38,9 +38,11 @@ function createDivs(grid = 16) {
 
 function changeColor() {
   if(selectedColor == 'red' || selectedColor == 'green' || selectedColor == 'blue') {
+    this.style.opacity = 1;
     this.style.backgroundColor = selectedColor;
   }
   else if (selectedColor == 'random') {
+    this.style.opacity = 1;
     this.style.backgroundColor = 'rgb(' + Math.floor(Math.random() * 255) + ',' +
         Math.floor(Math.random() * 255) + ',' + Math.floor(Math.random() * 255) +
         ')';
@@ -49,7 +51,7 @@ function changeColor() {
     if(this.style.backgroundColor != 'black'){
       this.style.opacity = 0.1;
       this.style.backgroundColor = 'black';
-    } else {
+    } else if(this.style.opacity < 1){
       this.style.opacity = Number(this.style.opacity) + 0.1;
       this.style.backgroundColor = 'black';
     }
